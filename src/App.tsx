@@ -1,7 +1,15 @@
-import React from 'react';
+import { useState } from 'react';
+import { ThemeProvider } from 'styled-components';
+import GlobalStyle from './styles/GlobalStyle';
+import { darkTheme, lightTheme } from './styles/theme';
 
 function App() {
-  return <div className="App"></div>;
+  const [isDark, setIsDark] = useState(false);
+  return (
+    <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
+      <GlobalStyle />
+    </ThemeProvider>
+  );
 }
 
 export default App;
