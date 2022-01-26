@@ -74,7 +74,7 @@ const Home = () => {
               <Link
                 key={coin.id}
                 to={`/${coin.id}`}
-                state={{ name: coin.name }}
+                state={{ name: coin.name, symbol: coin.symbol.toLowerCase() }}
               >
                 <Coin>
                   <CoinIcon
