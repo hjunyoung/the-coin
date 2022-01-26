@@ -12,5 +12,6 @@ declare module 'styled-components' {
     buttonStyle: string;
     containerStyle: string;
     flexCenter: string;
+    mobileNavHeight: string;
   }
 }

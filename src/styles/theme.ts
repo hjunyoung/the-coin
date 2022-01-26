@@ -20,6 +20,7 @@ const theme = {
     justify-content: center;
     align-items: center;
   `,
+  mobileNavHeight: '40px',
 };
 
 const darkTheme: DefaultTheme = {
