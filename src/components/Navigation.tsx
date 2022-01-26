@@ -8,6 +8,8 @@ import {
   faChartPie,
   faBars,
 } from '@fortawesome/free-solid-svg-icons';
+import { useRecoilValue } from 'recoil';
+import { latestCoinIdAtom } from '../atoms';
 
 const NavContainer = styled.nav`
   position: fixed;
@@ -33,6 +35,7 @@ const Btn = styled.button<{ isCurrent: boolean }>`
 
 const Navigation = () => {
   const { pathname } = useLocation();
+  const latestCoinId = useRecoilValue(latestCoinIdAtom);
   return (
     <NavContainer>
       <Link to="/">
@@ -40,10 +43,9 @@ const Navigation = () => {
           <FontAwesomeIcon icon={faHome} />
         </Btn>
       </Link>
-      <Link to="/:coinId">
-        {/* latest coin detail */}
+      <Link to={`/${latestCoinId}`}>
         <Btn
-          isCurrent={pathname === '/:coinId'}
+          isCurrent={pathname === `/${latestCoinId}`}
           aria-label="Coin Detail button"
         >
           <FontAwesomeIcon icon={faChartLine} />
