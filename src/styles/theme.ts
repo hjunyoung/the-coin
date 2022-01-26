@@ -15,13 +15,18 @@ const theme = {
     padding: 0 24px;
     margin: 16px auto;
   `,
+  flexCenter: `
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  `,
 };
 
 const darkTheme: DefaultTheme = {
   color: {
     textColor: '#f5f6fa',
     bgColor: '#2f3640',
-    accentColor: '#e1b12c',
+    accentColor: '#D6AB00',
     sectionColor: 'rgba(0, 0, 0, 0.5)',
   },
   ...theme,
@@ -31,7 +36,7 @@ const lightTheme: DefaultTheme = {
   color: {
     textColor: '#2f3640',
     bgColor: 'whitesmoke',
-    accentColor: '#e1b12c',
+    accentColor: '#D6AB00',
     sectionColor: 'rgba(255, 255, 255, 0.5)',
   },
   ...theme,

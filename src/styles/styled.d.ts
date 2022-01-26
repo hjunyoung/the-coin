@@ -11,5 +11,6 @@ declare module 'styled-components' {
     borderRadius: string;
     buttonStyle: string;
     containerStyle: string;
+    flexCenter: string;
   }
 }
