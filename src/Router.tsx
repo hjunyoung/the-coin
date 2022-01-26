@@ -2,6 +2,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Detail from './routes/Detail';
 import Home from './routes/Home';
 import { Helmet } from 'react-helmet';
+import WatchList from './routes/WatchList';
+import MyPortfolio from './routes/MyPortfolio';
+import About from './routes/About';
 
 const Router = () => {
   return (
@@ -33,6 +36,9 @@ const Router = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/:coinId" element={<Detail />}></Route>
+          <Route path="/watchlist" element={<WatchList />}></Route>
+          <Route path="/portfolio" element={<MyPortfolio />}></Route>
+          <Route path="/about" element={<About />}></Route>
         </Routes>
       </BrowserRouter>
     </>
