@@ -5,7 +5,7 @@ import Loader from '../components/Loader';
 import styled from 'styled-components';
 import Navigation from '../components/Navigation';
 import { Helmet } from 'react-helmet';
-import Header from '../components/Header';
+import PageTitle from '../components/PageTitle';
 
 const Container = styled.section`
   ${(props) => props.theme.containerStyle};
@@ -68,7 +68,7 @@ const Home = () => {
         <Loader />
       ) : (
         <Container>
-          <Header />
+          <PageTitle />
           <CoinsList>
             {coins?.slice(0, 100).map((coin) => (
               <Link

@@ -1,3 +1,4 @@
+import { useLocation } from 'react-router-dom';
 import styled from 'styled-components';
 import ModeToggleButton from './ModeToggleButton';
 
@@ -5,22 +6,32 @@ const WebsiteTitle = styled.h1`
   font-size: 3rem;
   font-weight: 700;
   color: ${(props) => props.theme.color.textColor};
-  margin-bottom: 24px;
 
   strong {
     color: ${(props) => props.theme.color.accentColor};
   }
 `;
 
-const Header = () => {
+interface IPageTitleProps {
+  title?: string;
+}
+
+const PageTitle = ({ title }: IPageTitleProps) => {
+  const { pathname } = useLocation();
   return (
     <>
       <WebsiteTitle>
-        the<strong>Coin</strong>
+        {pathname === '/' ? (
+          <>
+            the<strong>Coin</strong>
+          </>
+        ) : (
+          title
+        )}
       </WebsiteTitle>
       <ModeToggleButton />
     </>
   );
 };
 
-export default Header;
+export default PageTitle;
