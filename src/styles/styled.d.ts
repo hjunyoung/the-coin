@@ -7,11 +7,18 @@ declare module 'styled-components' {
       bgColor: string;
       accentColor: string;
       sectionColor: string;
+      chartUpColor: string;
+      chartDownColor: string;
     };
+    border: {
     borderRadius: string;
+      primaryBorder: string;
+      secondaryBorder: string;
+      tertiaryBorder: string;
+    };
     buttonStyle: string;
     containerStyle: string;
-    flexCenter: string;
     mobileNavHeight: string;
+    boxShadow: string;
   }
 }
