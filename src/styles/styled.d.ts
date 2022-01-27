@@ -11,7 +11,7 @@ declare module 'styled-components' {
       chartDownColor: string;
     };
     border: {
-    borderRadius: string;
+      borderRadius: string;
       primaryBorder: string;
       secondaryBorder: string;
       tertiaryBorder: string;
@@ -20,5 +20,7 @@ declare module 'styled-components' {
     containerStyle: string;
     mobileNavHeight: string;
     boxShadow: string;
+    flex: (jc?: string, ai?: string) => string;
+    flexColumn: (jc?: string, ai?: string) => string;
   }
 }

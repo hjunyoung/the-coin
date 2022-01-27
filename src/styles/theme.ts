@@ -19,6 +19,18 @@ const theme = {
   rgba(70, 70, 70, 0.23) 0px 4px 6px, rgba(70, 70, 70, 0.16) 0px 0px 6px,
   rgba(70, 70, 70, 0.23) 2px 0px 6px`,
 
+  flex: (jc = 'flex-start', ai = 'flex-start') => `
+  display:flex;
+  flex-direction: row;
+  justify-content: ${jc};
+  align-items: ${ai};
+  `,
+  flexColumn: (jc = 'flex-start', ai = 'flex-start') => `
+  display:flex;
+  flex-direction: column;
+  justify-content: ${jc};
+  align-items: ${ai};
+  `,
 };
 
 const darkTheme: DefaultTheme = {
