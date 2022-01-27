@@ -9,34 +9,31 @@ import PageTitle from '../components/PageTitle';
 
 const Container = styled.section`
   ${(props) => props.theme.containerStyle};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  ${(props) => props.theme.flexColumn('flex-start', 'center')};
+  gap: 24px;
 
   margin-bottom: ${(props) => props.theme.mobileNavHeight};
 `;
 
 const CoinsList = styled.ul`
+  /* min-width: 350px; */
+  /* max-width: 440px; */
   width: 100%;
 `;
 
 const Coin = styled.li`
-  display: flex;
-  align-items: center;
+  ${(props) => props.theme.flex('flex-start', 'center')};
   gap: 8px;
 
   font-weight: 700;
-
   background-color: ${(props) => props.theme.color.sectionColor};
   color: ${(props) => props.theme.color.textColor};
   padding: 16px;
-  border-radius: ${(props) => props.theme.borderRadius};
   margin-bottom: 12px;
-  transition: color 0.2s ease-in-out;
 
-  box-shadow: rgba(70, 70, 70, 0.16) 0px -1px 6px,
-    rgba(70, 70, 70, 0.23) 0px 4px 6px, rgba(70, 70, 70, 0.16) 0px 0px 6px,
-    rgba(70, 70, 70, 0.23) 2px 0px 6px;
+  box-shadow: ${(props) => props.theme.boxShadow};
+  border-radius: ${(props) => props.theme.border.borderRadius};
+  transition: color 0.2s ease-in-out;
 
   &:hover {
     color: ${(props) => props.theme.color.accentColor};
@@ -44,8 +41,8 @@ const Coin = styled.li`
 `;
 
 const CoinIcon = styled.img`
-  width: 32px;
-  height: 32px;
+  width: 2rem;
+  height: 2rem;
 `;
 interface ICoin {
   id: string;
