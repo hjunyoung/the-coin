@@ -8,13 +8,59 @@ import Loader from '../components/Loader';
 import styled from 'styled-components';
 import { useSetRecoilState } from 'recoil';
 import { latestCoinIdAtom } from '../atoms';
+import PageTitle from '../components/PageTitle';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar as faStarSolid } from '@fortawesome/free-solid-svg-icons';
+import { faStar as faStarRegular } from '@fortawesome/free-regular-svg-icons';
+import Chart from '../components/Chart';
 
-const CoinTitle = styled.h1``;
+const Container = styled.section`
+  ${(props) => props.theme.containerStyle};
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
+  gap: 24px;
+`;
+
+const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 90%;
+  min-height: 56px;
+
+  border-bottom: 2px solid ${(props) => props.theme.color.textColor};
+
+  & > div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  h1 {
+    font-size: 2.2rem;
+  }
+`;
+
+const Btn = styled.button`
+  font-size: 1.5rem;
+  align-self: end;
+  color: ${(props) => props.theme.color.textColor};
+  margin: 0 8px;
+`;
 
 const CoinIcon = styled.img`
-  width: 32px;
-  height: 32px;
+  width: 40px;
+  height: 40px;
 `;
+
+const Overview = styled.section`
+  width: 100%;
+`;
+
+const OverviewItem = styled.section``;
 
 type IParams = {
   coinId: string;
@@ -98,6 +144,8 @@ const Detail = () => {
   const setLatestCoinId = useSetRecoilState(latestCoinIdAtom);
   setLatestCoinId(coinId);
 
+  // console.log('Repeated Detail page Rendering');
+
   return (
     <>
       <Helmet>
@@ -112,19 +160,33 @@ const Detail = () => {
       {isLoading ? (
         <Loader />
       ) : (
-        <CoinTitle>
-          <CoinIcon
-            src={`https://cryptoicon-api.vercel.app/api/icon/${
-              state?.symbol
-                ? state.symbol
-                : isLoading || infoData?.symbol.toLowerCase()
-            }`}
-            alt="coin icon"
-          />
-          {state?.name ? state.name : isLoading ? '' : infoData?.name}
-        </CoinTitle>
+        <Container>
+          <Header>
+            <div>
+              <CoinIcon
+                src={`https://cryptoicon-api.vercel.app/api/icon/${
+                  state?.symbol
+                    ? state.symbol
+                    : isLoading || infoData?.symbol.toLowerCase()
+                }`}
+                alt={`${coinId} icon`}
+              />
+              <PageTitle title={infoData?.name} />
+            </div>
+            <Btn aria-label="Add to watch list button">
+              <FontAwesomeIcon icon={faStarRegular} />
+            </Btn>
+          </Header>
+          <Overview>
+            <OverviewItem>
+              <p>{priceData?.quotes.USD.price.toFixed(2)}</p>
+              <p>{priceData?.quotes.USD.percent_change_24h}</p>
+            </OverviewItem>
+            <Chart coinId={coinId} />
+          </Overview>
+          <ModeToggleButton />
+        </Container>
       )}
-      <ModeToggleButton />
       <Navigation />
     </>
   );
