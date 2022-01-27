@@ -5,19 +5,18 @@ import { useRecoilValue } from 'recoil';
 import styled from 'styled-components';
 import { fetchCoinHistory } from '../api';
 import { isDarkAtom } from '../atoms';
-import Loader from './Loader';
 
+// justify-content: flex-start, align-items: flex-start 하면 차트 작아지는 이유??
 const Container = styled.section`
-  display: flex;
-  flex-direction: column;
+  ${(props) => props.theme.flexColumn('', '')};
+  width: 90%;
 `;
 
 const DurationContainer = styled.section`
   display: flex;
   gap: 8px;
+  align-self: flex-end;
   font-weight: 700;
-
-  align-self: end;
 `;
 
 const DurationBtn = styled.button<{ isSelected: boolean }>`
@@ -27,8 +26,7 @@ const DurationBtn = styled.button<{ isSelected: boolean }>`
     props.isSelected
       ? props.theme.color.accentColor
       : props.theme.color.textColor};
-  font-size: 12px;
-
+  font-size: 0.75rem;
   box-shadow: ${(props) => props.theme.boxShadow};
 `;
 
@@ -75,9 +73,7 @@ const Chart = ({ coinId }: IChartProps) => {
 
   return (
     <Container>
-      {isLoading ? (
-        <Loader />
-      ) : (
+      {isLoading ? null : (
         <>
           <DurationContainer>
             <DurationBtn

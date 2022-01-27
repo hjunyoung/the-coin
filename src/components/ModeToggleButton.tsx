@@ -3,8 +3,7 @@ import { useRecoilState } from 'recoil';
 import { isDarkAtom } from '../atoms';
 
 const Mode = styled.div`
-  display: flex;
-  align-items: center;
+  ${(props) => props.theme.flex('flex-start', 'center')};
   overflow: hidden;
 
   position: fixed;
@@ -14,7 +13,7 @@ const Mode = styled.div`
   width: 44px;
   height: 24px;
   border: 1px solid black;
-  border-radius: ${(props) => props.theme.borderRadius};
+  border-radius: ${(props) => props.theme.border.borderRadius};
 
   background-color: ${(props) => props.theme.color.textColor};
 
@@ -24,8 +23,7 @@ const Mode = styled.div`
 `;
 
 const IconsContainer = styled.div<{ isDark: boolean }>`
-  display: flex;
-  align-items: center;
+  ${(props) => props.theme.flex('flex-start', 'center')};
   gap: 24px;
 
   position: relative;
@@ -36,13 +34,13 @@ const IconsContainer = styled.div<{ isDark: boolean }>`
 `;
 
 const ModeIconContainer = styled.div`
-  width: 21px;
-  height: 21px;
-  border: 1px solid black;
-  border-radius: 50%;
+  ${(props) => props.theme.flex('center', 'center')};
   background-color: ${(props) => props.theme.color.bgColor};
 
-  ${(props) => props.theme.flexCenter};
+  width: 21px;
+  height: 21px;
+  border: 1px solid ${(props) => props.theme.border.primaryBorder};
+  border-radius: 50%;
 `;
 
 const ModeIcon = styled.img`

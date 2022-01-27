@@ -2,8 +2,7 @@ import styled, { keyframes } from 'styled-components';
 
 const Container = styled.section`
   ${(props) => props.theme.containerStyle};
-  ${(props) => props.theme.flexCenter};
-  flex-direction: column;
+  ${(props) => props.theme.flexColumn('center', 'center')};
   gap: 32px;
 
   background-color: ${(props) => props.theme.color.bgColor};
@@ -33,8 +32,8 @@ const IconContainer = styled.section`
     left: 50%;
     transform: translateX(-50%);
 
-    height: 5px;
-    width: 30px;
+    height: 0.3rem;
+    width: 1.8rem;
     background: ${(props) => props.theme.color.textColor};
     opacity: 0.3;
     border-radius: 100%;
@@ -42,8 +41,8 @@ const IconContainer = styled.section`
 `;
 
 const Icon = styled.img`
-  width: 80px;
-  height: 80px;
+  width: 5rem;
+  height: 5rem;
   animation: ${rotateAnimation} 2s ease-in-out infinite;
 `;
 

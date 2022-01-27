@@ -12,17 +12,17 @@ import { useRecoilValue } from 'recoil';
 import { latestCoinIdAtom } from '../atoms';
 
 const NavContainer = styled.nav`
+  ${(props) => props.theme.flex('space-evenly', 'center')};
   position: fixed;
   bottom: 0;
+  left: 0;
 
   width: 100vw;
-  border-top: 1px solid ${(props) => props.theme.color.accentColor};
-  ${(props) => props.theme.flexCenter};
-  justify-content: space-evenly;
-
   height: ${(props) => props.theme.mobileNavHeight};
-  padding: 16px 0;
   background-color: ${(props) => props.theme.color.textColor};
+
+  padding: 16px 0;
+  border-top: 1px solid ${(props) => props.theme.color.accentColor};
 `;
 
 const Btn = styled.button<{ isCurrent: boolean }>`
